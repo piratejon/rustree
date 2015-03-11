@@ -1,6 +1,4 @@
 
-use std::error::Error;
-
 pub struct Bst<T> {
   left : std::option::Option<std::boxed::Box<Bst<T>>>,
   right : std::option::Option<std::boxed::Box<Bst<T>>>,
@@ -18,7 +16,8 @@ impl<T> std::default::Default for Bst<T> {
 }
 
 impl<T> Bst<T> {
-  pub fn insert(&self, t: T) {
+  pub fn insert(&mut self, t: T) {
+    self.payload = Some(Box::new(t));
   }
 
   pub fn get_payload<'a>(&'a self) -> Result<&'a T, u8> {
