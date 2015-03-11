@@ -26,5 +26,9 @@ impl<T> Bst<T> {
       Some(ref p) => Ok(&*p)
     }
   }
+
+  pub fn contains(&self, t: T) -> bool {
+    true
+  }
 }
 
